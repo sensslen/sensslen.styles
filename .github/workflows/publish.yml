@@ -16,7 +16,7 @@ jobs:
         with:
           nuget-version: "latest"
           
-      - uses: nowsprinting/check-version-format-action@v3
+      - uses: nowsprinting/check-version-format-action@v3.2.3
         id: version
         with:
           prefix: 'v'
