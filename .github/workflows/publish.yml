@@ -1,0 +1,43 @@
+name: release
+
+on:
+  push:
+    tags:
+      - "v*"
+      
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: build and publish nuget package
+    steps:
+      - uses: actions/checkout@master
+      - name: Setup NuGet.exe
+        uses: nuget/setup-nuget@v1
+        with:
+          nuget-version: "latest"
+          
+      - uses: nowsprinting/check-version-format-action@v3
+        id: version
+        with:
+          prefix: 'v'
+          
+      - run: nuget pack sensslen.styles.nuspec -Version ${{ steps.version.outputs.full_without_prefix }}
+      
+      - name: publish
+        id: publish_nuget
+        uses: alirezanet/publish-nuget@v3.0.4
+        with:
+          # Filepath of the project to be packaged, relative to root of repository
+          PROJECT_FILE_PATH: src/NuGetUtility/NuGetUtility.csproj
+          
+          # Configuration to build and package
+          BUILD_CONFIGURATION: Release
+
+          # NuGet package id, used for version detection & defaults to project name
+          PACKAGE_NAME: sensslen.styles
+
+          # Regex pattern to extract version info in a capturing group
+          VERSION: <Version>(.*)<\/Version>
+
+          # API key to authenticate with NuGet server
+          NUGET_KEY: ${{secrets.NUGET_KEY}}
