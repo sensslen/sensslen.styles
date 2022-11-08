@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<RuleSet Name="StyleCop.Analyzers rules with default action" Description="StyleCop.Analyzers with default action. Rules with IsEnabledByDefault = false are disabled." ToolsVersion="17.0">
+<RuleSet Name="sensslen.styles.ruleset" Description="StyleCop.Analyzers with default action. Rules with IsEnabledByDefault = false are disabled." ToolsVersion="17.0">
+  <Include Path="allrules.ruleset" Action="Default" />
+  <Include Path="D:\GIT\Private\sensslen.styles\sensslen.styles.ruleset" Action="Default" />
   <Rules AnalyzerId="Microsoft.Analyzers.ManagedCodeAnalysis" RuleNamespace="Microsoft.Rules.Managed">
     <Rule Id="CA1000" Action="Warning" />
     <Rule Id="CA1001" Action="Warning" />
@@ -884,7 +886,7 @@
     <Rule Id="SA1113" Action="Warning" />
     <Rule Id="SA1114" Action="Warning" />
     <Rule Id="SA1115" Action="Warning" />
-    <Rule Id="SA1116" Action="Warning" />
+    <Rule Id="SA1116" Action="None" />
     <Rule Id="SA1117" Action="Warning" />
     <Rule Id="SA1118" Action="Warning" />
     <Rule Id="SA1120" Action="Warning" />
@@ -906,7 +908,11 @@
     <Rule Id="SA1136" Action="Warning" />
     <Rule Id="SA1137" Action="Warning" />
     <Rule Id="SA1139" Action="Warning" />
-    <Rule Id="SX1101" Action="None" />
+    <Rule Id="SX1101" Action="Warning" />
+  </Rules>
+  <Rules AnalyzerId="StyleCop.Analyzers" RuleNamespace="StyleCop.Analyzers">
+    <Rule Id="SA1116" Action="None" />
+    <Rule Id="SX1101" Action="Warning" />
   </Rules>
   <Rules AnalyzerId="StyleCop.Analyzers" RuleNamespace="StyleCop.Analyzers.SpacingRules">
     <Rule Id="SA1000" Action="Warning" />
