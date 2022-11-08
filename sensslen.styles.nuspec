@@ -1,22 +1,20 @@
 <?xml version="1.0"?>
 <package>
     <metadata>
-        <version>0.0.1-alpha.2</version>
+        <version>0.0.0</version>
         <authors>Simon Ensslen</authors>
         <license type="expression">MIT</license>
         <projectUrl>https://github.com/tomchavakis/nuget-license</projectUrl>
         <title>Sensslen Stylecop Rules</title>
         <description>Stylecop rules used by Simon Ensslen</description>
         <id>sensslen.styles</id>
-        <dependencies>
-            <group targetFramework="netstandard2.0">
-                <dependency id="StyleCop.Analyzers" version="1.1.118" />
-            </group>
+        <dependencies>                
+            <dependency id="StyleCop.Analyzers" version="1.1.118" />
         </dependencies>
     </metadata>
     <files>
-        <file src="stylecop.json" />
-        <file src="sensslen.styles.ruleset" />
+        <file src="stylecop.json" target="" />
+        <file src="sensslen.styles.ruleset" target="" />
         <file src="sensslen.styles.props" target="build" />
     </files>
 </package>
